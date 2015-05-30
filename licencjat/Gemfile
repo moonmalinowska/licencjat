@@ -57,3 +57,9 @@ gem 'gmaps4rails'
 
 #Tagi
 gem 'acts-as-taggable-on', '~> 3.4'
+
+
+#bootstrap
+gem 'bootstrap-sass', '~> 3.3.4'
+
+

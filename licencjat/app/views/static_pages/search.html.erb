@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="jquery.min.js"></script>
+  <script src="select2.js"></script>
+
+</head>
+<body>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><%= link_to "Home", static_pages_home_path %></li>
+        <li><%= link_to "Wycieczki po fabrykach", static_pages_trips_path %></li>
+        <li><%= link_to "Targi technologiczne", static_pages_fairs_path %></li>
+        <li><%= link_to "Muzea techniczne", static_pages_museums_path %></li>
+        <li><%= link_to "Wskazówki dla podróżnych", static_pages_tips_path %></li>
+        <li class="active"><%= link_to"Wyszukiwarka atrakcji", static_pages_search_path %><span class="sr-only">(current)</span></li>
+
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+  <div class="col-md-8 col-sm-8">
+    <div class="form-control">
+  <div class="field ">
+    <%= label :category, "Kategoria" %><br />
+    <%= select_tag(:category_id, options_from_collection_for_select(Category.all, 'id', 'name'), :prompt => "Select
+      one!", :id => "select2" ) %>
+  </div>
+  <div class="field">
+    <%= label :region, "Region" %><br />
+    <%= select_tag(:region_id, options_from_collection_for_select(Region.all, 'id', 'name'), :prompt => "Select
+      one!", :id => "select2" ) %>
+  </div>
+
+      <div class="checkbox">
+        <label><input type="checkbox" value="">Wycieczki po fabrykach</label>
+      </div>
+      <div class="checkbox">
+        <label><input type="checkbox" value="">Targi technologiczne</label>
+      </div>
+      <div class="checkbox">
+        <label><input type="checkbox" value="" >Muzea techniczne</label>
+      </div>
+      <div class="checkbox">
+        <label><input type="checkbox" value="" >Zaznacz wszystkie</label>
+      </div>
+
+  <button class="btn btn-success pull-right" type="button"><span class="glyphicon glyphicon-search"
+                                                      aria-hidden="true"> Szukaj</span></button>
+    </div>
+  </div>
+  <div class="col-md-3 col-xs-5">
+    <%= render template: "layouts/right-side" %>
+  </div>
+</div><!-- /.container -->
+<br \><br \><br \>
+<div>
+  <%= render template: "layouts/footer" %>
+</div>
+</body>

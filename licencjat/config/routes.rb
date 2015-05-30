@@ -1,4 +1,16 @@
 Rails.application.routes.draw do
+  get 'static_pages/home'
+
+  get 'static_pages/tips'
+
+  get 'static_pages/trips'
+
+  get 'static_pages/fairs'
+
+  get 'static_pages/museums'
+
+  get 'static_pages/search'
+
   get 'tag/show'
 
   devise_for :admin_users, ActiveAdmin::Devise.config

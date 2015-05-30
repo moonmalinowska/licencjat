@@ -12,7 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require bootstrap-sprockets
 //= require turbolinks
 //= require Underscore
 //= require gmaps/google
+//= require social-likes.min
 //= require_tree .
