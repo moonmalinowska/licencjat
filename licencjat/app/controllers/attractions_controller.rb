@@ -1,6 +1,8 @@
 class AttractionsController < ApplicationController
   before_action :set_attraction, only: [:show, :edit, :update, :destroy]
 
+
+
   # GET /attractions
   # GET /attractions.json
   def index
@@ -21,6 +23,7 @@ class AttractionsController < ApplicationController
   # GET /attractions/1
   # GET /attractions/1.json
   def show
+
     @attractions = Attraction.tagged_with(params[:tag])
     @hash = Gmaps4rails.build_markers(@attractions) do |attraction, marker|
       marker.lat attraction.latitude
@@ -95,4 +98,7 @@ class AttractionsController < ApplicationController
                                          :more_info, :picture, :url, :category_id, :region_id, :latitude, :longitude,
                                          :tag_list, :tag)
     end
+  def activeadmin_resource?
+    self.class.ancestors.include? ActiveAdmin::BaseController
+  end
 end

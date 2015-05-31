@@ -1,9 +1,17 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @attraction.name %>
-</p>
+<%= render template: "layouts/logo+menu" %>
+<div class="container">
+  <div class="col-md-3 col-sm-3">
+    <a class="story-img" href="#"><img src="300.gif" style="width:250px;height:250px"></a>
+  </div>
+
+  <div class="col-md-6 col-sm-9 well">
+
+
+  <h2><%= @attraction.name %></h2>
+
+
 
 <p>
   <strong>Description:</strong>
@@ -45,27 +53,28 @@
   <%= @attraction.url %>
 </p>
 
-<p>
-  <strong>Category:</strong>
-  <%= @attraction.category_id %>
-</p>
 
-<p>
-  <strong>Region:</strong>
-  <%= @attraction.region_id %>
-</p>
-<p>
-  <strong>Tag:</strong>
-<td><% @attraction.tags.each do |tag| %>
-      <%= link_to tag, @attraction %>
-  <% end %></td>
-</p>
+<p class="pull-right">
 
 
+     <span class="label label-success btn-link"> <%= link_to @attraction.category.name, category_path
+     %></span>
+
+      <span class="label label-success btn-link"><%= link_to @attraction.region.name, region_path
+      %></span>
+
+<% @attraction.tags.each do |tag| %>
+        <span class="label label-success btn-link"><%= link_to tag.name,  tag_path(tag)%></span>
+
+  <% end %>
+
+</p>
+  </div>
+  <div class="col-md-3 col-xs-5 ">
 <div >
   <div id="multi_markers" style='width: 300px; height: 400px;'></div>
 </div>
-
+<br \><br \><br \>
 
 <script type="text/javascript">
 
@@ -94,5 +103,17 @@
 
 </script>
 
-<%= link_to 'Edit', edit_attraction_path(@attraction) %> |
-<%= link_to 'Back', attractions_path %>
+
+
+
+    <%= render template: "layouts/right-side" %>
+
+
+  </div>
+
+  <%= link_to 'Edit', edit_attraction_path(@attraction) %>|
+  <%= link_to 'Back', attractions_path %>
+</div>
+<div>
+  <%= render template: "layouts/footer" %>
+</div>

@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
   before_action :tag_cloud
 
 
+
   def tag_cloud
 
     @tags = Attraction.tag_counts_on(:tags).order('count desc').limit(5)
