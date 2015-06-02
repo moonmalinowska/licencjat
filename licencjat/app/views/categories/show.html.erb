@@ -1,9 +1,51 @@
 <p id="notice"><%= notice %></p>
+<%= render template: "layouts/logo+menu" %>
+<div class="container">
 
+
+  <div class="col-md-9 col-sm-9">
+    <p>
+
+Atrakcje dla kategorii: <strong class="text-uppercase"><%= @category.name %></strong>
+    </p>
+    <table class="table table-striped table-hover ">
+      <% @category.attractions.each do |attr| %>
+      <tbody>
+
+      <tr class="success">
+
+        <td>    <a class="story-img col-md-2" href="#"><img src="ccc" style="width:100px;height:100px"></a></td>
+
+        <td class="col-md-3">coscoscos<% attr.name %></td>
+        <td class="col-md-5">coscoscos<% attr.description %></td>
+        <td class="col-md-2"><%= link_to "Zobacz więcej", attractions_path(@attraction) %></td>
+
+            </tr>
+
+
+
+      </tbody>
+      <% end %>
+    </table>
 <p>
-  <strong>Name:</strong>
-  <%= @category.name %>
+    <% @category.attractions.each do |c|  %>
+<% printf(c.name) %>
+    <% end %>
 </p>
+
+<% @category.attractions.each do |cat| %>
+    <span class="label label-success btn-link"><%= link_to cat.name,  attraction_path%></span>
+
+<% end %>
+  </div>
+    <div class="col-md-3 col-xs-5 ">
+    <%= render template: "layouts/right-side" %>
+</div>
+
 
 <%= link_to 'Edit', edit_category_path(@category) %>|
 <%= link_to 'Back', categories_path %>
+</div>
+<div>
+  <%= render template: "layouts/footer" %>
+</div>

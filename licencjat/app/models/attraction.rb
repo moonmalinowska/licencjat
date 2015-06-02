@@ -1,8 +1,10 @@
 class Attraction < ActiveRecord::Base
 
 
-  belongs_to :region#, :class_name => "Region", :foreign_key => :region_id
-  belongs_to :category#, :class_name => "Category", :foreign_key => :category_id
+  belongs_to :region, :class_name => "Region", :foreign_key => :region_id
+  belongs_to :category, :class_name => "Category", :foreign_key => :category_id
+  belongs_to :variety
+  accepts_nested_attributes_for :category
 
   acts_as_taggable
 

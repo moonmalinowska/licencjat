@@ -1,10 +1,10 @@
-ActiveAdmin.register Attraction do
+ActiveAdmin.register Variety do
 
 
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
-  # permit_params :list, :of, :attributes, :on, :model
+   permit_params :name
   #
   # or
   #
@@ -14,6 +14,5 @@ ActiveAdmin.register Attraction do
   #   permitted
   # end
 
-  permit_params :name, :description, :address, :opening_hour, :duration, :reservation, :more_info, :picture, :url,
-                :latitude, :longitude, :category_id, :region_id, :variety_id
+
 end

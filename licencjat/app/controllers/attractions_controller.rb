@@ -1,12 +1,14 @@
 class AttractionsController < ApplicationController
   before_action :set_attraction, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_regions, only: [:new, :edit, :update, :create]
+  before_action :set_categories, only: [:new, :edit, :update, :create]
 
 
   # GET /attractions
   # GET /attractions.json
   def index
     @attractions = Attraction.all
+    @regions = Region.all
   end
 
   def tagged
@@ -96,9 +98,18 @@ class AttractionsController < ApplicationController
     def attraction_params
       params.require(:attraction).permit(:name, :description, :address, :opening_hour, :duration, :reservation,
                                          :more_info, :picture, :url, :category_id, :region_id, :latitude, :longitude,
-                                         :tag_list, :tag)
+                                         :tag_list, :tag, :variety_id)
     end
-  def activeadmin_resource?
-    self.class.ancestors.include? ActiveAdmin::BaseController
+
+
+  def set_regions
+    @regions = Region.all.map do |reg|
+      [reg.name + ' ' + reg.attraction.name, reg.id]
+    end
   end
+  def set_categories
+    @categories = Category.all.map do |c|
+      [c.name + ' ' + c.attraction.name, c.id]
+    end
+    end
 end
