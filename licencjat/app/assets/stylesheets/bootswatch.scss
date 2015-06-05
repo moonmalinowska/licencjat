@@ -1,42 +1,30 @@
 // Sandstone 3.3.4
 // Bootswatch
 // -----------------------------------------------------
+@import "config";
 
 @import url("https://fonts.googleapis.com/css?family=Roboto:400,500");
-@import "_variables";
+
 // Navbar =====================================================================
 
 .sandstone {
-  font-size: 13px;
+  font-size: 11px;
   line-height: 22px;
   font-weight: 500;
   text-transform: uppercase;
-
-}
-.navbar .navbar-nav {
-  display: inline-block;
-  float: none;
-  vertical-align: top;
 }
 
-.navbar .navbar-collapse {
-  text-align: center;
-}
 .navbar {
-
   .nav > li > a {
     @extend .sandstone;
   }
 
   &-form input,
   &-form .form-control {
-    border: 1px;
+    border: none;
   }
 }
 
-.form-control {
-  border: 1px;
-}
 // Buttons ====================================================================
 
 .btn {

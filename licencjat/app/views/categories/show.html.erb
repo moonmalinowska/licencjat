@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
-<%= render template: "layouts/logo+menu" %>
+<%= render template: "layouts/menu" %>
 <div class="container">
 
 
@@ -8,6 +8,7 @@
 
 Atrakcje dla kategorii: <strong class="text-uppercase"><%= @category.name %></strong>
     </p>
+    <% if @category.attractions.count > 0 %>
     <table class="table table-striped table-hover ">
       <% @category.attractions.each do |attr| %>
       <tbody>
@@ -16,9 +17,9 @@ Atrakcje dla kategorii: <strong class="text-uppercase"><%= @category.name %></st
 
         <td>    <a class="story-img col-md-2" href="#"><img src="ccc" style="width:100px;height:100px"></a></td>
 
-        <td class="col-md-3">coscoscos<% attr.name %></td>
-        <td class="col-md-5">coscoscos<% attr.description %></td>
-        <td class="col-md-2"><%= link_to "Zobacz więcej", attractions_path(@attraction) %></td>
+        <td class="col-md-3"><%= attr.name %></td>
+        <td class="col-md-5"><%= attr.description %></td>
+        <td class="col-md-2"><%= link_to "Zobacz więcej", attraction_path(attr) %></td>
 
             </tr>
 
@@ -27,16 +28,17 @@ Atrakcje dla kategorii: <strong class="text-uppercase"><%= @category.name %></st
       </tbody>
       <% end %>
     </table>
-<p>
-    <% @category.attractions.each do |c|  %>
-<% printf(c.name) %>
+        <% else %>
+
+        <div class="alert alert-dismissible alert-danger">
+
+          <h4>Uwaga!</h4>
+          <p>Ta kategoria nie jest związana z żadną atrakcją.</p>
+        </div>
+
     <% end %>
-</p>
 
-<% @category.attractions.each do |cat| %>
-    <span class="label label-success btn-link"><%= link_to cat.name,  attraction_path%></span>
 
-<% end %>
   </div>
     <div class="col-md-3 col-xs-5 ">
     <%= render template: "layouts/right-side" %>

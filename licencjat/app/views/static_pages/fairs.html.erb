@@ -1,8 +1,18 @@
 <nav class="navbar navbar-default">
   <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
+        <span class="sr-only">Rozwiń nawigację</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
 
+      </button>
+      <a class="navbar-brand" href="#">"Logo strony"</a>
+    </div>
 
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
       <ul class="nav navbar-nav">
         <li><%= link_to "Home", static_pages_home_path%></li>
         <li><%= link_to "Wycieczki po fabrykach", static_pages_trips_path %></li>
@@ -39,11 +49,11 @@
           <table class="table table-striped table-hover ">
             <tbody>
             <tr class="success">
-              <td><div><a class="story-img " href="#"><img src="ccc" style="width:250px;height:200px"></a>  </div>
+              <td><div><a class="story-img " href="<%=attraction_path(attraction) %>"><img src="ccc" style="width:250px;height:200px"></a>  </div>
 
-                <div> <h3>coscoscos<% attraction.name %> </h3> </div>
-                <div>  coscoscos<% attraction.description %>  </div>
-                <div> <%= link_to "Zobacz więcej", attractions_path(@attraction) %>   </div>
+                <div> <h3><%= attraction.name %> </h3> </div>
+                <div>  <%= attraction.description %>  </div>
+                <div> <%= link_to "Zobacz więcej", attraction_path(attraction) %>   </div>
               </td>
             </tr>
             </tbody>

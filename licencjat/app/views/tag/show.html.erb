@@ -1,19 +1,50 @@
-<h1>Attractions Tagged as <%= @tag.name %></h1>
+<p id="notice"><%= notice %></p>
+<%= render template: "layouts/menu" %>
+<div class="container">
 
+
+  <div class="col-md-9 col-sm-9">
+    <p>
+Atrakcje otagowane jako:<strong class="text-uppercase"> <%= @tag.name %></strong>
+</p>
 <% if @attractions.count > 0 %>
 
-    <ul>
 
+      <table class="table table-striped table-hover ">
       <% @attractions.each do |attraction| %>
 
-          <li><%= link_to attraction.name, attraction_path(attraction) %></li>
+            <tbody>
 
-      <% end %>
+            <tr class="success">
 
-    </ul>
+              <td>    <a class="story-img col-md-2" href="#"><img src="ccc" style="width:100px;height:100px"></a></td>
+
+              <td class="col-md-3"><%= attraction.name %></td>
+              <td class="col-md-5"><%= attraction.description %></td>
+              <td class="col-md-2"><%= link_to "Zobacz więcej", attraction_path(attraction) %></td>
+
+            </tr>
+
+
+
+            </tbody>
+        <% end %>
+      </table>
+
 
 <% else %>
 
-    <p>This tag is not associated with any attractions.</p>
+    <p>Ten tag nie jest związany z żadną atrakcją.</p>
 
 <% end %>
+
+
+
+  </div>
+<div class="col-md-3 col-xs-5 ">
+  <%= render template: "layouts/right-side" %>
+</div>
+</div>
+<div>
+  <%= render template: "layouts/footer" %>
+</div>

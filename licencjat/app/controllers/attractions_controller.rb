@@ -1,7 +1,5 @@
 class AttractionsController < ApplicationController
   before_action :set_attraction, only: [:show, :edit, :update, :destroy]
-  before_action :set_regions, only: [:new, :edit, :update, :create]
-  before_action :set_categories, only: [:new, :edit, :update, :create]
 
 
   # GET /attractions
@@ -25,7 +23,7 @@ class AttractionsController < ApplicationController
   # GET /attractions/1
   # GET /attractions/1.json
   def show
-
+    @categories =Category.all
     @attractions = Attraction.tagged_with(params[:tag])
     @hash = Gmaps4rails.build_markers(@attractions) do |attraction, marker|
       marker.lat attraction.latitude
@@ -42,6 +40,7 @@ class AttractionsController < ApplicationController
   # GET /attractions/new
   def new
     @attraction = Attraction.new
+    @categories = Category.all
   end
 
   # GET /attractions/1/edit
@@ -102,14 +101,5 @@ class AttractionsController < ApplicationController
     end
 
 
-  def set_regions
-    @regions = Region.all.map do |reg|
-      [reg.name + ' ' + reg.attraction.name, reg.id]
-    end
-  end
-  def set_categories
-    @categories = Category.all.map do |c|
-      [c.name + ' ' + c.attraction.name, c.id]
-    end
-    end
+
 end

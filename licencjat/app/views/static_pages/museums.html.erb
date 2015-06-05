@@ -42,10 +42,10 @@
             <tbody>
             <tr class="success">
               <td>
-                <div><a class="story-img " href="#"><img src="ccc" style="width:250px;height:200px"></a></div>
-                <div><h3> coscoscos<% attraction.name %> </h3> </div>
-                <div>  coscoscos<% attraction.description %>  </div>
-                <div> <%= link_to "Zobacz więcej", attractions_path(@attraction) %>   </div>
+                <div><a class="story-img " href="<%=attraction_path(attraction) %>"><img src="ccc" style="width:250px;height:200px"></a></div>
+                <div><h3> <%= attraction.name %> </h3> </div>
+                <div> <%= attraction.description %>  </div>
+                <div> <%= link_to "Zobacz więcej", attraction_path(attraction) %>   </div>
               </td>
             </tr>
             </tbody>
