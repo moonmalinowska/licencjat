@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <script src="jquery.min.js"></script>
-  <script src="select2.js"></script>
+
 
 </head>
 <body>
@@ -38,36 +37,46 @@
 <div class="container">
   <div class="col-md-9 col-sm-8">
 
+    <%= form_tag('search_model/1', method: :get) do %>
+        <%= label_tag(:q, "Search for") %>
+        <%= submit_tag("Search123") %>
       <div class="form-group">
-  <div class="field ">
-    <%= label :category, "Kategoria" %><br />
-    <%= select_tag(:category_id, options_from_collection_for_select(Category.all, 'id', 'name'), :prompt => "Select
-      one!") %>
-  </div>
-  <div class="field">
-    <%= label :region, "Region" %><br />
-    <%= select_tag(:region_id, options_from_collection_for_select(Region.all, 'id', 'name'), :prompt => "Select
-      one!") %>
-  </div>
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Szukaj...">
 
-      <div class="checkbox">
-        <label><input type="checkbox" value="">Wycieczki po fabrykach</label>
-      </div>
-      <div class="checkbox">
-        <label><input type="checkbox" value="">Targi technologiczne</label>
-      </div>
-      <div class="checkbox">
-        <label><input type="checkbox" value="" >Muzea techniczne</label>
-      </div>
-      <div class="checkbox">
-        <label><input type="checkbox" value="" >Zaznacz wszystkie</label>
-      </div>
+        </div>
 
-  <button class="btn btn-success pull-right" type="button"><span class="glyphicon glyphicon-search"
+        <div class="field ">
+            <%= label :category, "Kategoria" %><br />
+            <%= select_tag(:category_id, options_from_collection_for_select(Category.all, 'id', 'name'), :prompt => "Select
+              one!") %>
+         </div>
+        <div class="field">
+            <%= label :region, "Region" %><br />
+            <%= select_tag(:region_id, options_from_collection_for_select(Region.all, 'id', 'name'), :prompt => "Select
+          one!") %>
+        </div>
+
+        <div class="checkbox">
+            <label><input type="checkbox" value="">Wycieczki po fabrykach</label>
+        </div>
+        <div class="checkbox">
+            <label><input type="checkbox" value="">Targi technologiczne</label>
+        </div>
+        <div class="checkbox">
+            <label><input type="checkbox" value="" >Muzea techniczne</label>
+        </div>
+        <div class="checkbox">
+            <label><input type="checkbox" value="" >Zaznacz wszystkie</label>
+        </div>
+
+        <button class="btn btn-success pull-right" type="button"><span class="glyphicon glyphicon-search"
                                                       aria-hidden="true"> Szukaj</span></button>
 
+      </div>
+    <% end %>
   </div>
-    </div>
+
   <div class="col-md-3 col-xs-5">
     <%= render template: "layouts/right-side" %>
   </div>

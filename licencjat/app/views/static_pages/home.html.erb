@@ -1,20 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script src="jquery.min.js"></script>
-<script src="social-likes.min.js"></script>
-<meta name="generator" content="Social Likes: http://sapegin.github.com/social-likes/">
-<link rel="stylesheet" href="social-likes_birman.scss">
+  <script src="jquery.min.js"></script>
+  <script src="social-likes.min.js"></script>
+  <meta name="generator" content="Social Likes: http://sapegin.github.com/social-likes/">
+  <link rel="stylesheet" href="social-likes_birman.scss">
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 
-  </head>
+</head>
 <body>
 <p id="notice"><%= notice %></p>
+
 <div class="jumbotron text-center">
   <div class="container">
     <div class="row">
       <div class="col col-lg-12 col-sm-12">
         <h1>LOGO</h1>
+
         <p>jakieś</p>
 
       </div>
@@ -38,11 +40,11 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
       <ul class="nav navbar-nav">
         <li class="active"><%= link_to "Home", static_pages_home_path %><span class="sr-only">(current)</span></li>
-        <li ><%= link_to "Wycieczki po fabrykach", static_pages_trips_path %></li>
+        <li><%= link_to "Wycieczki po fabrykach", static_pages_trips_path %></li>
         <li><%= link_to "Targi technologiczne", static_pages_fairs_path %></li>
         <li><%= link_to "Muzea techniczne", static_pages_museums_path %></li>
         <li><%= link_to "Wskazówki dla podróżnych", static_pages_tips_path %></li>
-        <li><%= link_to"Wyszukiwarka atrakcji", static_pages_search_path %></li>
+        <li><%= link_to "Wyszukiwarka atrakcji", static_pages_search_path %></li>
 
       </ul>
 
@@ -52,52 +54,55 @@
 <div class="container">
 
 
+  <div class="col-md-3 col-sm-3">
+    <a class="story-img" href="#"><img src="300.gif" style="width:250px;height:250px"></a>
+  </div>
 
-    <div class="col-md-3 col-sm-3">
-      <a class="story-img" href="#"><img src="300.gif" style="width:250px;height:250px"></a>
+  <div class="col-md-6 col-sm-3">
+    <h1>Nagłówek</h1>
+
+
+    <p class="lead">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sed interdum sapien. Lorem ipsum dolor sit
+      amet,
+      consectetur adipiscing elit.
+    </p>
+
+    <p>Curabitur consequat, leo in sodales sollicitudin, sem eros pellentesque diam, sit amet
+      imperdiet est velit eu tellus. Curabitur neque eros, bibendum a augue eget, luctus accumsan turpis.
+      Vivamus uscipit, felis sit amet venenatis accumsan, urna purus vestibulum purus, ac porta sapien turpis at massa.
+      Phasellus ante purus, fringilla in justo quis, convallis commodo felis. Sed vel ex id lorem egestas faucibus eget
+      vitae lorem. Integer faucibus ullamcorper dui, sit amet viverra sapien sodales vel. Nulla ante nibh, vulputate a
+      gravida vel, semper vel nisi. Nam quis ligula vulputate, elementum libero eu, feugiat massa. Pellentesque habitant
+      morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nullam in tincidunt enim, non euismod dui.
+    </p>
+
+
+    <div>
+      <p>
+        <%= button_to "Znajdź atrakcję", static_pages_search_path, :class => "btn btn-success pull-right", :method =>
+                                               :get %>
+      </p>
+
+
+      <div class="social-likes social-likes_single pull-right" data-counters="no" data-single-title="Share">
+        <div class="facebook" title="Share link on Facebook">Facebook</div>
+        <div class="twitter" title="Share link on Twitter">Twitter</div>
+        <div class="plusone" title="Share link on Google+">Google+</div>
+      </div>
     </div>
-
-            <div class="col-md-6 col-sm-3" >
-              <h1>Nagłówek</h1>
-
-
-  <p class="lead">
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sed interdum sapien. Lorem ipsum dolor sit amet,
-    consectetur adipiscing elit.
-  </p>
-   <p>Curabitur consequat, leo in sodales sollicitudin, sem eros pellentesque diam, sit amet
-    imperdiet est velit eu tellus. Curabitur neque eros, bibendum a augue eget, luctus accumsan turpis.
-    Vivamus uscipit,  felis sit amet venenatis accumsan, urna purus vestibulum purus, ac porta sapien turpis at massa.
-    Phasellus  ante purus, fringilla in justo quis, convallis commodo felis. Sed vel ex id lorem egestas faucibus eget
-    vitae lorem. Integer faucibus ullamcorper dui, sit amet viverra sapien sodales vel. Nulla ante nibh, vulputate a
-    gravida vel, semper vel nisi. Nam quis ligula vulputate, elementum libero eu, feugiat massa. Pellentesque habitant
-    morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nullam in tincidunt enim, non euismod dui.
-  </p>
-
-
-<div>
-  <p>
-    <%= button_to "Znajdź atrakcję", static_pages_search_path, :class => "btn btn-success pull-right", :method =>
-                                           :get  %>
-  </p>
-
-
-<div class="social-likes social-likes_single pull-right" data-counters="no" data-single-title="Share">
-  <div class="facebook" title="Share link on Facebook">Facebook</div>
-  <div class="twitter" title="Share link on Twitter">Twitter</div>
-  <div class="plusone" title="Share link on Google+">Google+</div>
-</div>
-</div>
-</div>
+  </div>
   <br \><br \><br \><br \>
 
-            <div class="col-md-3 col-xs-5 ">
-              <%= render template: "layouts/right-side" %>
+  <div class="col-md-3 col-xs-5 ">
+    <%= render template: "layouts/right-side" %>
 
 
-            </div> </div>
+  </div>
+</div>
 <br \><br \><br \>
-<div  class="container-fluid">
-<%= render template: "layouts/footer" %>
+
+<div class="container-fluid">
+  <%= render template: "layouts/footer" %>
 </div>
 </body>

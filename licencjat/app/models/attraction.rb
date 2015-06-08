@@ -6,6 +6,9 @@ class Attraction < ActiveRecord::Base
   belongs_to :variety
   accepts_nested_attributes_for :category
 
+  include Elasticsearch::Model
+  include Elasticsearch::Model::Callbacks
+
   acts_as_taggable
 
   geocoded_by :address
@@ -27,5 +30,4 @@ class Attraction < ActiveRecord::Base
   #def full_address
  #   "#{address} Japan"
  # end
-
 end

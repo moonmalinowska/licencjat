@@ -1,5 +1,6 @@
 class Category < ActiveRecord::Base
-
+  include Elasticsearch::Model
+  include Elasticsearch::Model::Callbacks
   has_many :attractions
   accepts_nested_attributes_for :attractions
 

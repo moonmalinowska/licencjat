@@ -1,30 +1,63 @@
 // Sandstone 3.3.4
 // Bootswatch
 // -----------------------------------------------------
-@import "config";
 
 @import url("https://fonts.googleapis.com/css?family=Roboto:400,500");
+@import "variables";
 
 // Navbar =====================================================================
 
 .sandstone {
-  font-size: 11px;
+  font-size: 12px;
   line-height: 22px;
   font-weight: 500;
   text-transform: uppercase;
+
+}
+.navbar .navbar-nav {
+  display: inline-block;
+  float: none;
+  vertical-align: top;
+  background-color: $navbar-inverse-bg;
+  border-color: $navbar-inverse-border;
+  background: $navbar-inverse-bg;
+  .active{
+    background-color: darken($brand-success, 15%);
+  }
+}
+
+.container-fluid{
+  background-color: $navbar-inverse-bg;
+  border-color: $navbar-inverse-border;
+}
+.navbar-text{ color: #ffffff}
+.nav .navbar .navbar-inverse{
+  border-color: $navbar-inverse-border;
+}
+.navbar .navbar-collapse {
+  text-align: center;
 }
 
 .navbar {
+
   .nav > li > a {
     @extend .sandstone;
+
+    &:hover {
+      font-weight: 900;
+
+    }
   }
 
   &-form input,
   &-form .form-control {
-    border: none;
+    border: 1px;
   }
 }
 
+.form-control {
+  border: 1px;
+}
 // Buttons ====================================================================
 
 .btn {
@@ -41,9 +74,12 @@
 
   &-default {
     &:hover {
-      background-color: $navbar-default-link-active-bg;
+      background-color: $navbar-inverse-link-active-bg;
     }
   }
+}
+.btn-success {
+  @include button-variant($btn-success-color, #93C54B, $btn-success-border);
 }
 
 // Typography =================================================================
@@ -98,7 +134,7 @@ input,
 
   li.active > a,
   li > a:hover {
-    border-color: $gray-light;
+    border-color: $brand-success;
   }
 
   li.disabled > a {

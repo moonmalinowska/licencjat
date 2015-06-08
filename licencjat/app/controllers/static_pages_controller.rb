@@ -29,4 +29,9 @@ class StaticPagesController < ApplicationController
   def search
     @categories= Category.all
   end
+
+  def search_model
+    binding.pry
+    @category = Category.search(params[:id])
+  end
 end

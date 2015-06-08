@@ -62,5 +62,8 @@ gem 'acts-as-taggable-on', '~> 3.4'
 #bootstrap
 gem 'bootstrap-sass', '~> 3.3.4'
 
+#wyszukiwarka
+gem 'elasticsearch-model'
+gem 'elasticsearch-rails'
 
-gem 'bootswatch-rails'
+gem 'pry'

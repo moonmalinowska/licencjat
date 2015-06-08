@@ -19,16 +19,18 @@
 
 */
 
-//@import "bootstrap-sprockets";
-
-@import "bootswatch/sandstone/variables";
+@import "bootstrap-sprockets";
+@import "variables";
 $icon-font-path: "bootstrap-sass/assets/fonts/bootstrap/";
 @import "bootstrap";
+
+
+
 
 // Then bootstrap itself
 
 
 // And finally bootswatch style itself
-@import "bootswatch/sandstone/bootswatch";
+@import "bootswatch";
 @import "social-likes_birman";
 @import "tips";

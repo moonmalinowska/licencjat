@@ -21,9 +21,9 @@
 <h3>Tagi</h3>
 <div class="well">
 
-  <% tag_cloud(@tags, %w(css1 css2 css3 css4)) do |tag, label | %>
-    <span class="label label-success btn-link"> <%= link_to tag.name,  tag_path(tag), :class =>
-                                  label %></span>
+  <% tag_cloud(@tags, %w(css1 css2 css3 css4)) do |tag, label| %>
+    <span class="label label-success btn-link"> <%= link_to tag.name, tag_path(tag), :class =>
+                                                                            label %></span>
   <% end %>
 
 </div>
@@ -35,10 +35,10 @@
 
   <ul>
     <% @categories.each do |c| %>
-    <li class="list-group-item"><%= link_to c.name, category_path(c.id) %></li>
+        <li class="list-group-item"><%= link_to c.name, category_path(c.id) %></li>
 
     <% end %>
-        </ul>
+  </ul>
 
 </div>
 

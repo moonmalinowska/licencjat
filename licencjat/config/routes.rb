@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root to: 'static_pages#home'
+
   get 'static_pages/home'
 
   get 'static_pages/tips'
@@ -13,6 +15,7 @@ Rails.application.routes.draw do
 
   get 'tag/show'
 
+  get 'static_pages/search_model/:id' => 'static_pages#search_model'
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
