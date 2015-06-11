@@ -14,13 +14,13 @@
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
       <ul class="nav navbar-nav">
-        <li><%= link_to "Home", static_pages_home_path%></li>
+        <li><%= link_to "Home", static_pages_home_path %></li>
         <li><%= link_to "Wycieczki po fabrykach", static_pages_trips_path %></li>
         <li class="active"><%= link_to "Targi technologiczne", static_pages_fairs_path %><span class="sr-only">
           (current)</span></li>
         <li><%= link_to "Muzea techniczne", static_pages_museums_path %></li>
         <li><%= link_to "Wskazówki dla podróżnych", static_pages_tips_path %></li>
-        <li><%= link_to"Wyszukiwarka atrakcji", static_pages_search_path %></li>
+        <li><%= link_to "Wyszukiwarka atrakcji", static_pages_search_path %></li>
 
       </ul>
 
@@ -37,10 +37,12 @@
 
 
     <p class="lead">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sed interdum sapien. Lorem ipsum dolor sit amet,
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sed interdum sapien. Lorem ipsum dolor sit
+      amet,
       consectetur adipiscing elit.
     </p>
     <br \>
+
     <h2>Najpopularniejsze targi technologiczne</h2>
     <br \>
 
@@ -49,9 +51,16 @@
           <table class="table table-striped table-hover ">
             <tbody>
             <tr class="success">
-              <td><div><a class="story-img " href="<%=attraction_path(attraction) %>"><img src="ccc" style="width:250px;height:200px"></a>  </div>
+              <td>
+                <div>
+                  <%= link_to attraction_path(attraction) do %>
+                      <%= image_tag('300.gif', alt: 'toooor', width: "250px", height: "200px", class:
+                                                     "story-img") %>
+                  <% end %>
+                </div>
 
-                <div> <h3><%= attraction.name %> </h3> </div>
+
+                <div><h3><%= attraction.name %> </h3></div>
                 <div>  <%= attraction.description %>  </div>
                 <div> <%= link_to "Zobacz więcej", attraction_path(attraction) %>   </div>
               </td>

@@ -42,7 +42,12 @@
             <tbody>
             <tr class="success">
               <td>
-                <div><a class="story-img " href="<%=attraction_path(attraction) %>"><img src="ccc" style="width:250px;height:200px"></a></div>
+                <div>
+                  <%= link_to attraction_path(attraction) do %>
+                      <%= image_tag('300.gif', alt: 'toooor', width: "250px", height: "200px", class:
+                                                     "story-img") %>
+                  <% end %>
+                </div>
                 <div><h3> <%= attraction.name %> </h3> </div>
                 <div> <%= attraction.description %>  </div>
                 <div> <%= link_to "Zobacz więcej", attraction_path(attraction) %>   </div>

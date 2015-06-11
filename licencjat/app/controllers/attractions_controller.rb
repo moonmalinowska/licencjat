@@ -1,5 +1,6 @@
 class AttractionsController < ApplicationController
   before_action :set_attraction, only: [:show, :edit, :update, :destroy]
+  authorize_resource only: [:update, :delete, :edit]
 
 
   # GET /attractions

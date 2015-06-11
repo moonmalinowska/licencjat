@@ -18,3 +18,30 @@
 //= require gmaps/google
 //= require social-likes.min
 //= require_tree .
+
+$( document ).ready(function() {
+    var szer = "<%= @attraction.latitude %>";
+    var dlu = "<%= @attraction.longitude %>";
+    var naz = '<%= @attraction.name %>';
+
+    var handler = Gmaps.build('Google');
+    handler.buildMap({ internal: {id: 'multi_markers'}}, function(){
+        var markers;
+        markers = handler.addMarkers([
+            {
+
+                lat: szer, lng: dlu,
+                infowindow: '$naz'.replace('$naz', naz)
+
+
+            }
+        ]);
+
+        handler.bounds.extendWith(markers);
+
+        handler.fitMapToBounds();
+        handler.getMap().setZoom(15);
+
+    });
+
+});

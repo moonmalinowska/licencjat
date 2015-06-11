@@ -4,6 +4,15 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :tag_cloud
 
+  rescue_from CanCan::AccessDenied, with: :not_authorized
+
+  private
+
+  def not_authorized
+    redirect_to root_url, :alert => "Nieautoryzowany dostęp"
+
+  end
+
 
 
   def tag_cloud
@@ -14,5 +23,9 @@ class ApplicationController < ActionController::Base
   def index
     @attractions = ActsAsTaggableOn::Attraction.all
     #ActsAsTaggableOn::Tag.most_used(10)
+  end
+
+  def cat
+    @categories = Category.all
   end
 end

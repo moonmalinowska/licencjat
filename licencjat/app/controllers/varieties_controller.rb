@@ -1,5 +1,6 @@
 class VarietiesController < ApplicationController
   before_action :set_variety, only: [:show, :edit, :update, :destroy]
+  authorize_resource only: [:update, :delete, :edit]
 
 
   # GET /categories

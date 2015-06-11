@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+
+  devise_for :users
   root to: 'static_pages#home'
 
   get 'static_pages/home'
@@ -17,6 +19,14 @@ Rails.application.routes.draw do
 
   get 'static_pages/search_model/:id' => 'static_pages#search_model'
 
+ # get 'propositions/new'
+
+ # post 'propositions/create'
+
+ # resources :propositions
+  resources :propositions, only: [:new, :create]
+
+
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
 
@@ -30,6 +40,8 @@ Rails.application.routes.draw do
   resources :tag
 
   resources :varieties
+
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

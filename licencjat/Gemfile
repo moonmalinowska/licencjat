@@ -67,3 +67,7 @@ gem 'elasticsearch-model'
 gem 'elasticsearch-rails'
 
 gem 'pry'
+
+#mail
+gem 'mail_form'
+gem 'simple_form'
