@@ -45,6 +45,7 @@ end
 
 #Panel admina
 gem 'activeadmin', '~> 1.0.0.pre1'
+gem 'active_skin'
 # Plus integrations with:
 gem 'devise'
 gem 'cancancan'
@@ -71,3 +72,5 @@ gem 'pry'
 #mail
 gem 'mail_form'
 gem 'simple_form'
+
+

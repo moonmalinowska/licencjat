@@ -17,6 +17,7 @@
 //= require Underscore
 //= require gmaps/google
 //= require social-likes.min
+//= require new
 //= require_tree .
 
 $( document ).ready(function() {

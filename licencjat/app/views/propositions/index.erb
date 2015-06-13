@@ -8,12 +8,13 @@
 <div class="container">
   <div class="col-md-9">
     <div class="jumbotron">
-      <div class="container text-center ">
-        <strong>Dziękujemy za przesłanie propozycji! </strong>
+      <div class="jumbotron text-center ">
+        <strong>Przykro mi, nie udało się dostarczyć Twojej wiadomości. </strong>
       </div>
       <div class="container text-center">
 <span class="text-center">
-  <%= link_to 'Wróć na stronę główną', root_url, :class => 'button' %>.  </span>
+  <%= link_to 'Spróbuj ponownie', propositions_new_path, :class => 'button' %> lub
+  <%= link_to 'wróć na stronę główną', root_url, :class => 'button' %>.  </span>
       </div>
     </div>
   </div>

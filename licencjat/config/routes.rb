@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'error/not_found'
+
   devise_for :users
   root to: 'static_pages#home'
 
@@ -19,13 +21,19 @@ Rails.application.routes.draw do
 
   get 'static_pages/search_model/:id' => 'static_pages#search_model'
 
+
+
  # get 'propositions/new'
 
  # post 'propositions/create'
 
  # resources :propositions
-  resources :propositions, only: [:new, :create]
+  resources :propositions, only: [:new, :create, :show]
 
+ #get 'propositions/new'
+ # get 'propositions/create'
+  #get 'propositions/index'
+  match '/propositions', to: 'propositions#new', via: 'get'
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
@@ -97,4 +105,7 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+  get "*any", via: :all, to: "error#not_found"
 end
+
+

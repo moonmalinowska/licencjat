@@ -21,7 +21,7 @@ class Attraction < ActiveRecord::Base
   validates :name, presence: true, uniqueness: true, length: {within: 2..100}
   validates :description, presence: true, length: {minimum: 10}
   validates_presence_of :address, :opening_hour, :duration, :reservation, :picture
-  validates_presence_of :region_id, :category_id
+  validates_presence_of :region_id, :category_id, :variety_id
   validates_length_of :more_info, :minimum => 5, :allow_blank => true
 
 

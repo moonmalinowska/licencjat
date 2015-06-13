@@ -13,8 +13,12 @@ class ApplicationController < ActionController::Base
 
   end
 
-
-
+  def page_not_found
+    respond_to do |format|
+      format.html { render template: 'public/404', layout: 'layouts/application', status: 404 }
+      format.all  { render nothing: true, status: 404 }
+    end
+  end
   def tag_cloud
 
     @tags = Attraction.tag_counts_on(:tags).order('count desc').limit(5)

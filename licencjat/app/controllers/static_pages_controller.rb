@@ -1,5 +1,8 @@
 class StaticPagesController < ApplicationController
+
   skip_authorization_check
+  include VarietiesHelper
+
   def home
     @categories= Category.all
   end
@@ -10,19 +13,28 @@ class StaticPagesController < ApplicationController
   end
 
   def trips
-    @categories= Category.all
+    @variety = Variety.find_by_id(1)
+
     @attractions=Attraction.all
     @varieties=Variety.all
-    @variety=Variety.find(1)
+
+    @categories= Category.all
+    #@attractions= @attractions.variety.name
    # @attraction = Attraction.find(params[:id])
+   # @attr = @varieties.attractions
+
+
+
   end
 
   def fairs
+    @variety = Variety.find_by_id(3)
     @categories= Category.all
     @attractions=Attraction.all
   end
 
   def museums
+    @variety = Variety.find_by_id(2)
     @categories= Category.all
     @attractions=Attraction.all
   end

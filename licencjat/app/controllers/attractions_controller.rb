@@ -1,6 +1,6 @@
 class AttractionsController < ApplicationController
   before_action :set_attraction, only: [:show, :edit, :update, :destroy]
-  authorize_resource only: [:update, :delete, :edit]
+  authorize_resource only: [:update, :delete, :edit, :create, :new]
 
 
   # GET /attractions
@@ -8,6 +8,9 @@ class AttractionsController < ApplicationController
   def index
     @attractions = Attraction.all
     @regions = Region.all
+    #@varieties = Variety.all
+    @categories =Category.all
+    @variety = Variety.find(params[:name])
   end
 
   def tagged
